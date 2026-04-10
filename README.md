@@ -1,246 +1,138 @@
-\# Advanced Web3 Digital Asset Marketplace
+# Advanced Digital Asset Marketplace
 
+## Introduction
 
+Advanced Digital Asset Marketplace is a full-stack Web3 application that enables users to buy, sell, and transfer digital assets through blockchain-based ownership logic and ERC20 token payments.
 
-\## Overview
+The project combines Solidity smart contracts, Hardhat-based development and testing, and a React frontend to simulate a practical marketplace workflow for tokenized digital assets.
 
+It is designed to demonstrate end-to-end Web3 development, including contract architecture, secure transaction handling, frontend integration, and user-facing blockchain interaction.
 
+## Core Functionality
 
-This project is a full-stack decentralized application (DApp) that enables users to buy, sell, and transfer ownership of digital assets using ERC20 tokens as a payment method.
+The application supports the following marketplace operations:
 
+- registration of digital assets
+- listing assets for sale
+- purchasing assets with ERC20 tokens
+- transferring asset ownership between users
+- displaying transaction feedback through the frontend
 
+The payment layer is handled through a mock ERC20 token contract, allowing the marketplace contract to process token-based transactions in a controlled testing environment.
 
-The application is built using Solidity for smart contract development, Hardhat for testing and deployment, and React for the frontend interface.
+## Technical Architecture
 
+The project is structured into three main layers.
 
+### Smart Contract Layer
 
-The goal of this project is to demonstrate a complete Web3 architecture, including secure smart contract design, blockchain interaction, and a responsive user interface.
+The smart contract layer is implemented in Solidity and includes:
 
+- `DigitalArtMarket.sol` for marketplace logic
+- `MockToken.sol` for ERC20-based payment simulation
 
+This layer is responsible for asset registration, listing, purchase flow, ownership transfer, and transaction validation.
 
-\---
+### Development and Testing Layer
 
+Hardhat is used as the local blockchain development environment for:
 
+- compilation
+- deployment
+- automated testing
+- contract interaction during development
 
-\## Key Features
+The test suite validates core marketplace behavior, including purchase logic, asset transfers, and token interactions.
 
+### Frontend Layer
 
+The frontend is built with React and Vite and provides the user interface for interacting with the marketplace.
 
-\- Purchase digital assets using ERC20 tokens
+It is responsible for:
 
-\- Sell and list digital assets on-chain
+- connecting user actions to smart contract calls
+- displaying marketplace state
+- handling transaction feedback
+- presenting asset and ownership information in a usable format
 
-\- Transfer ownership between users
+## Security and Validation Considerations
 
-\- Real-time transaction feedback in the UI
+The project was built with attention to practical smart contract design principles, including:
 
-\- Secure transaction handling with smart contract validation
+- validation of transaction inputs
+- controlled execution of ownership transfers
+- ERC20-based payment verification
+- separation of contract logic and frontend interaction
+- test coverage for critical marketplace flows
 
+While the application is designed as a portfolio and learning project, it reflects production-relevant patterns in Web3 architecture and contract interaction.
 
+## Project Structure
 
-\---
+    advanced-digital-asset-marketplace/
+    ├── contracts/
+    │   ├── DigitalArtMarket.sol
+    │   └── MockToken.sol
+    ├── scripts/
+    │   └── deploy.js
+    ├── test/
+    │   └── DigitalArtMarket.js
+    ├── frontend/
+    │   ├── src/
+    │   ├── package.json
+    │   └── vite.config.js
+    ├── hardhat.config.js
+    ├── package.json
+    ├── package-lock.json
+    ├── .gitignore
+    └── README.md
 
+## Local Setup
 
+Install dependencies in the root project:
 
-\## Architecture
+    npm install
 
+Run compilation:
 
+    npx hardhat compile
 
-The project follows a modular full-stack architecture:
+Run tests:
 
+    npx hardhat test
 
+Start a local blockchain:
 
-\- Smart Contracts (Solidity)
+    npx hardhat node
 
-&#x20; - DigitalArtMarket.sol
+Deploy contracts locally:
 
-&#x20; - MockToken.sol (ERC20 for payments)
+    npx hardhat run scripts/deploy.js --network localhost
 
+Start the frontend:
 
+    cd frontend
+    npm install
+    npm run dev
 
-\- Backend / Blockchain Layer
+## Environment Configuration
 
-&#x20; - Hardhat for deployment and testing
+Create a `.env` file in the project root and configure the required variables:
 
-&#x20; - Ethers.js for contract interaction
+    SEPOLIA_RPC_URL=your_rpc_url
+    PRIVATE_KEY=your_private_key
 
+## What This Project Demonstrates
 
+This project is intended to demonstrate practical skills in:
 
-\- Frontend (React + Vite)
+- Solidity smart contract development
+- Hardhat-based deployment and testing workflows
+- ERC20 token integration
+- full-stack Web3 application architecture
+- frontend-to-contract interaction
+- blockchain-based marketplace design
 
-&#x20; - Wallet connection
-
-&#x20; - Transaction execution
-
-&#x20; - UI state management
-
-
-
-\---
-
-
-
-\## Smart Contract Design
-
-
-
-The DigitalArtMarket contract handles:
-
-
-
-\- Asset creation and registration
-
-\- Listing assets for sale
-
-\- Purchasing assets using ERC20 tokens
-
-\- Ownership transfer
-
-\- Transaction logging
-
-
-
-Security considerations include:
-
-
-
-\- Input validation for all transactions
-
-\- Controlled access for critical functions
-
-\- Safe ERC20 token transfers
-
-\- Protection against invalid ownership transfers
-
-
-
-\---
-
-
-
-\## Testing
-
-
-
-Smart contract functionality is tested using Hardhat:
-
-
-
-\- Deployment tests
-
-\- Purchase and sale logic
-
-\- Ownership transfer validation
-
-\- Token interaction tests
-
-
-
-\---
-
-
-
-\## Installation
-
-
-
-Clone the repository:
-
-
-
-&#x20;   git clone https://github.com/minadoryani/advanced-digital-asset-marketplace
-
-
-
-Install dependencies:
-
-
-
-&#x20;   npm install
-
-
-
-\---
-
-
-
-\## Run Smart Contracts
-
-
-
-&#x20;   npx hardhat compile
-
-&#x20;   npx hardhat test
-
-&#x20;   npx hardhat node
-
-&#x20;   npx hardhat run scripts/deploy.js --network localhost
-
-
-
-\---
-
-
-
-\## Run Frontend
-
-
-
-&#x20;   cd frontend
-
-&#x20;   npm install
-
-&#x20;   npm run dev
-
-
-
-\---
-
-
-
-\## Environment Variables
-
-
-
-Create a `.env` file:
-
-
-
-&#x20;   SEPOLIA\_RPC\_URL=your\_rpc\_url
-
-&#x20;   PRIVATE\_KEY=your\_private\_key
-
-
-
-\---
-
-
-
-\## Purpose
-
-
-
-This project demonstrates practical experience in:
-
-
-
-\- Smart contract development
-
-\- Full-stack Web3 application architecture
-
-\- Secure blockchain interactions
-
-\- Frontend and smart contract integration
-
-
-
-\---
-
-
-
-\## Author
-
-
+## Author
 
 Mina Doryani
-
