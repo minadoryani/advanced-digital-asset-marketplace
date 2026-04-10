@@ -1,0 +1,35 @@
+# Node modules
+node_modules/
+
+# Frontend node modules
+frontend/node_modules/
+
+# Environment variables
+.env
+.env.*
+
+# Hardhat
+artifacts/
+cache/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build folders
+dist/
+build/
+
+# Vite
+frontend/dist/
+
+# Coverage
+coverage/
+
+# Typechain
+typechain-types/
